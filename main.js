@@ -108,7 +108,7 @@ class getDirectionalLight {
     }
 }
 
-function animateLogo() {
+function animateLogo(timeElapsed) {
     let logoAnim = scene.getObjectByName("logoMesh1");
     let logoGeo = logoAnim.geometry;
     logoGeo.verticesNeedUpdate = true;
@@ -123,7 +123,7 @@ function update(renderer, scene, camera, controls, clock) {
 
     let timeElapsed = clock.getElapsedTime(); // getElapsedTime property of the clock object is being called here.
 
-    animateLogo();
+    animateLogo(timeElapsed);
 
     renderer.render(scene,camera);
 
