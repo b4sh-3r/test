@@ -23,7 +23,6 @@ function init () {
 
     scene.add(light01);
     scene.add(lightAmbient01);
-    light01.add(sphere02);
     scene.add(helper);
 
     light01.position.y = 5;
@@ -123,19 +122,6 @@ function update(renderer, scene, camera, controls, clock) {
     controls.update;
 
     let timeElapsed = clock.getElapsedTime(); // getElapsedTime property of the clock object is being called here.
-
-    let boxGrid = scene.getObjectByName("boxGrid-01");
-    boxGrid.children.forEach(function(child, index) {
-        child.scale.y = (Math.sin(timeElapsed * 5 + index)+1)/2;
-        child.position.y = child.geometry.parameters.height*child.scale.y/2;
-    })
-
-    let geo = scene.getObjectByName('ground_01');
-    let geoGeo = geo.geometry;
-    geoGeo.verticesNeedUpdate = true;
-    geoGeo.vertices.forEach(function(vertex, index){
-        vertex.z = Math.sin(timeElapsed + index) * 0.5;
-    })
 
     animateLogo();
 
